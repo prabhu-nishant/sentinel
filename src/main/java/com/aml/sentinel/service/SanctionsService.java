@@ -18,7 +18,7 @@ public class SanctionsService {
     public SanctionsService(ChatClient.Builder builder, VectorStore vectorStore) {
         this.vectorStore = vectorStore;
         this.chatClient = builder
-                .defaultSystem("You are a Senior Sanctions Investigator at TD Securities.")
+                .defaultSystem("You are a Senior Sanctions Investigator at XYZ Bank.")
                 .build();
     }
 
