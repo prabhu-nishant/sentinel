@@ -29,23 +29,22 @@ ext {
 }
 
 dependencies {
-	// 1. Core Spring Boot (Version 3.5.10)
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	// 1. Core Spring Boot
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 
-	// 2. Core AI Interfaces (This contains the VectorStore symbol)
+	// 2. Core AI Interfaces
 	implementation 'org.springframework.ai:spring-ai-starter-model-ollama'
 	implementation 'org.springframework.ai:spring-ai-vector-store'
+	implementation 'org.springframework.ai:spring-ai-pgvector-store'
 
 	// 3. Developer Productivity
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
 
-	// 4. AI-Specific Dev Services (Ensures Ollama & PGVector images are managed)
-	developmentOnly 'org.springframework.ai:spring-ai-spring-boot-docker-compose'
-
-	// 5. Runtime & Testing
+	// 4. Runtime & Testing
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

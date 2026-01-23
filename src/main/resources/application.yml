@@ -1,6 +1,8 @@
 spring:
   application:
     name: sentinel
+
+  # 1. AI Configuration
   ai:
     ollama:
       base-url: http://localhost:11434
@@ -8,12 +10,27 @@ spring:
         options:
           model: phi3
           temperature: 0.0
+      embedding:
+        options:
+          model: phi3
     vectorstore:
       pgvector:
         initialize-schema: true
-        dimensions: 384
+        schema-validation: false
+        dimensions: 3072
         index-type: hnsw
-    datasource:
-      url: jdbc:postgresql://localhost:5432/sanctions_db
-      username: admin
-      password: password
+
+  # 2. Database Configuration
+  datasource:
+    url: jdbc:postgresql://localhost:5432/sanctions_db
+    username: admin
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+  # 3. JPA/Hibernate Configuration
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
