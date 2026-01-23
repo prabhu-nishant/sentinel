@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: sentinel
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        options:
+          model: phi3
+          temperature: 0.0
+    vectorstore:
+      pgvector:
+        initialize-schema: true
+        dimensions: 384
+        index-type: hnsw
+    datasource:
+      url: jdbc:postgresql://localhost:5432/sanctions_db
+      username: admin
+      password: password
