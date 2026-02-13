@@ -19,3 +19,7 @@ services:
     container_name: aml-ollama
     ports:
       - "11434:11434"
+    deploy:
+      resources:
+        limits:
+          memory: 8G
